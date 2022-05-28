@@ -1,0 +1,26 @@
+package Controller;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+public class PresentationJSON {
+	public static void main(String[] args) throws IOException, ParseException {
+		try {
+
+			JSONParser parser = new JSONParser();
+			Reader in = new BufferedReader(new FileReader("top20.json"));
+			JSONObject jsonObject = (JSONObject) parser.parse(in);
+
+			String licenseOrgan = (String) jsonObject.get("licenseOrgan");
+
+		} catch (Exception e) {
+			System.out.println("게시글 데이터 로딩 중 오류 발생!");
+		}
+	}
+}

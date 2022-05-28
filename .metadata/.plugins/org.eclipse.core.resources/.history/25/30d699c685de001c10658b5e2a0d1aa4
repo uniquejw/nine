@@ -1,0 +1,27 @@
+package Controller;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class CSVtoJSON {
+	ArrayList CSVList = new ArrayList();
+
+	public void BoardController() throws IOException {
+		System.out.println("BoardController() 호출됨!");
+		FileReader in = new FileReader("top20.csv");
+		BufferedReader buf = new BufferedReader(in);
+
+		String line;
+		while ((line = buf.readLine()).length() != 0) { // 빈 줄을 리턴 받았으면 읽기를 종료한다.
+			CSVList.add(line);
+		}
+		
+		buf.close();
+	}
+
+}

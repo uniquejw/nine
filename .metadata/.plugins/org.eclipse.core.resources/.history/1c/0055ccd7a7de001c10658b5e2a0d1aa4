@@ -1,0 +1,21 @@
+package Controller;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+import com.google.gson.JsonArray;
+
+public class PresentationJSON {
+	public static void main(String[] args) throws IOException {
+		try {
+			BufferedReader in = new BufferedReader(new FileReader("top20.json"));
+			ObjectMapper mapper = new ObjectMapper();
+			String jsonStr = in.readLine();
+			
+			in.close();
+		} catch (Exception e) {
+			System.out.println("게시글 데이터 로딩 중 오류 발생!");
+		}
+	}
+}

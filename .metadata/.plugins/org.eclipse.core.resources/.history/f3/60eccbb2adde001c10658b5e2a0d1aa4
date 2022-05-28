@@ -1,0 +1,32 @@
+package Controller;
+
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+public class PresentationJSON {
+	public static void main(String[] args) throws IOException, ParseException {
+		
+		
+		try {
+	
+			JSONParser parser = new JSONParser();
+			FileReader reader = new FileReader("top20.json");
+			Object obj = parser.parse(reader);
+			String str;
+			
+			System.out.println(obj);
+			
+			JSONObject jsonObject = 
+			
+			reader.close();
+			
+			
+		} catch (Exception e) {
+			System.out.println("게시글 데이터 로딩 중 오류 발생!");
+		}
+	}
+}

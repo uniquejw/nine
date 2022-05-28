@@ -1,0 +1,47 @@
+package Controller;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+public class CSVtoJSON {
+	public static void main(String[] args) throws IOException {
+		ArrayList CSVList = new ArrayList();
+		FileReader in = new FileReader("top20.csv");
+		BufferedReader in2 = new BufferedReader(in);
+
+		JSONArray JSONList = new JSONArray();
+		PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("top20.json")));
+
+		String line;
+
+		while ((line = in2.readLine()) != null) {
+			System.out.println(line); // CSV형식 출력
+			CSVList.add(line);
+		}
+		String str;
+		String[] arr;
+		for (int i = 1; i < CSVList.size() - 1; i++) {
+
+			JSONObject resultObj = new JSONObject();
+			str = (String) CSVList.get(i);
+			arr = str.split(",");
+
+			resultObj.put("id", arr[0]);
+			resultObj.put("title", arr[1]);
+			resultObj.put("licenseOrgan", arr[2]);
+			resultObj.put("esRegdt", arr[3]);
+			JSONList.add(resultObj);
+
+		}
+		
+		System.out.println(JSONList);
+	}
+}

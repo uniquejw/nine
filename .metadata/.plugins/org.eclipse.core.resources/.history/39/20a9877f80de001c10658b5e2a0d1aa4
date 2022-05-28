@@ -1,0 +1,20 @@
+package Controller;
+
+import java.io.FileReader;
+import java.util.ArrayList;
+
+public class CSVtoJSON {
+	ArrayList boardList = new ArrayList();
+
+	public void BoardController() {
+	    System.out.println("BoardController() 호출됨!");
+	    FileReader in = new FileReader("top20.csv");
+
+	    String line;
+	    while ((line = in.read()).length() != 0) { // 빈 줄을 리턴 받았으면 읽기를 종료한다.
+	      boardList.add(Board.valueOf(line)); 
+	    }
+
+	    in.close();
+	  }
+}

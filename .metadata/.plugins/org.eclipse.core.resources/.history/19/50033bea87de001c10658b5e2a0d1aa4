@@ -1,0 +1,14 @@
+package Controller;
+
+import java.util.ArrayList;
+
+public class CSVtoJSON {
+	public static void main(String[] args) {
+		ArrayList CSVList = new ArrayList();
+
+		FileReader in = new FileReader("top20.csv");
+		BufferReader in2 = new BufferReader(in);
+		
+		CSVList.add();
+	}
+}

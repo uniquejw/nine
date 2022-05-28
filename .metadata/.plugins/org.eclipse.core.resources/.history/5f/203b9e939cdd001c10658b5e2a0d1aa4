@@ -1,0 +1,6 @@
+package app;
+
+public class Snippet {
+	 Your ApplicationContext is unlikely to start due to a @ComponentScan of the default 
+}
+
